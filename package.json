@@ -3,9 +3,13 @@
 	"version": "1.0.0",
 	"description": "Boiler Plate for Mern Stack Apps",
 	"main": "index.js",
+	"engine": {
+		"node": "14.17.0",
+		"npm": "8.3.0"
+	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"backend": "nodemon index.js"
+		"backend": "nodemon server/index.js"
 	},
 	"author": "Corey Miller",
 	"license": "ISC",
