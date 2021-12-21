@@ -70,6 +70,6 @@ app.put("/api/user/logout", auth, (req, res) => {
 	});
 });
 
-const port = process.env.port || 4000;
+const PORT = process.env.PORT || 4000;
 
-app.listen(port, () => console.log(`Server Listening on PORT ${port}`));
+app.listen(PORT, () => console.log(`Server Listening on PORT ${PORT}`));
