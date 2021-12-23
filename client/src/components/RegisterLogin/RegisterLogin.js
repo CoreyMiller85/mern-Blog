@@ -80,7 +80,7 @@ const RegisterLogin = (props) => {
 							<span
 								className="helper-text"
 								data-error="wrong"
-								data-success="right"
+								data-success="Email Is Valid"
 							/>
 						</div>
 					</div>
@@ -98,7 +98,7 @@ const RegisterLogin = (props) => {
 							<span
 								className="helper-text"
 								data-error="wrong"
-								data-success="right"
+								data-success="Password is Valid"
 							/>
 						</div>
 					</div>

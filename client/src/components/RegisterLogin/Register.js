@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-materialize";
+import { registerUser } from "../../actions/user_actions";
 
 const mapStateToProps = (state) => {
 	return {
@@ -19,8 +20,8 @@ const Register = (props) => {
 		password: "",
 	});
 
-	const isFormValid = (email, password) => {
-		if (email && password) {
+	const isFormValid = (email, password, name, lastName) => {
+		if (email && password && name && lastName) {
 			return true;
 		}
 		return false;
@@ -28,31 +29,37 @@ const Register = (props) => {
 
 	const handleSubmitForm = (event) => {
 		event.preventDefault();
-		/**
-		 *
-		 *
-		 * CODE TO CORRECT!!!!
-		 *
-		 *
-		 */
-		// let dataToSubmit = {
-		// 	email,
-		// 	password,
-		// };
-		// if (isFormValid(email, password)) {
-		// 	setErrors({ errors: [] });
-		// 	props.dispatch(loginUser(dataToSubmit)).then((response) => {
-		// 		if (response.payload.success) {
-		// 			navigate("/");
-		// 		} else {
-		// 			const newState = ["Incorrect Username or Password."];
-		// 			setErrors({ errors: newState });
-		// 		}
-		// 	});
-		// } else {
-		// 	const newState = ["Please enter a valid email address and password"];
-		// 	setErrors({ errors: newState });
-		// }
+
+		let dataToSubmit = {
+			name: formData.name,
+			lastName: formData.lastName,
+			email: formData.email,
+			password: formData.password,
+		};
+		if (
+			isFormValid(
+				formData.email,
+				formData.password,
+				formData.name,
+				formData.lastName
+			)
+		) {
+			setErrors({ errors: [] });
+			props.dispatch(registerUser(dataToSubmit)).then((response) => {
+				console.log(response);
+				if (response.payload.success) {
+					navigate("/");
+				} else {
+					const newState = ["Something Went wrong."];
+					setErrors({ errors: newState });
+				}
+			});
+		} else {
+			const newState = [
+				"Please enter a valid first name, last name, email address and password",
+			];
+			setErrors({ errors: newState });
+		}
 	};
 
 	const handleChange = (event) => {
