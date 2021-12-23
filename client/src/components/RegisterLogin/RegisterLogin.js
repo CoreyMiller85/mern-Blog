@@ -104,7 +104,7 @@ const RegisterLogin = (props) => {
 					</div>
 					{errors.errors.length > 0 && <div>{displayErrors(errors)}</div>}
 					<div className="row">
-						<div className="col s6">
+						<div className="col s12">
 							<Button
 								className="btn wave-effect red lighten-2"
 								type="submit"
@@ -120,6 +120,9 @@ const RegisterLogin = (props) => {
 									type="submit"
 									name="action"
 									waves="light"
+									style={{
+										marginLeft: "1rem",
+									}}
 								>
 									Register
 								</Button>
