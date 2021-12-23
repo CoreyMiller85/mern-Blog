@@ -5,7 +5,7 @@ export default function userReducer(state = {}, action) {
 		case LOGIN_USER:
 			return { ...state, loginSuccess: action.payload };
 		case REGISTER_USER:
-			return { ...state, loginSuccess: action.payload };
+			return { ...state, registerSuccess: action.payload };
 		default:
 			return state;
 	}
